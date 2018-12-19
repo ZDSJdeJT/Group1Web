@@ -646,11 +646,11 @@ body {
 
 <body>
 <%
-    if(session.getAttribute("username") == null&&session.getAttribute("password")==null){
+    if(session.getAttribute("user") == null)
+    {
     	%>
     	<script>
-    	alert('尊敬的游客，由于您未登录，所以无法使用该平台，请登录后再进行访问！');
-    	location.href('login.jsp');
+    	alert('尊敬的游客，由于您未登录，所以无法使用该平台，请登录后再进行访问！');location.href('login.jsp');
     	</script>
 <%
     }
@@ -660,7 +660,7 @@ body {
 		<ul class="mcd-menu">
 			<li>
 				<div style="padding-bottom:20px">
-                <a href="#"  class="active">
+                <a href="http://localhost:8080/PRAC/A%20home.jsp"  class="active">
 					<i class="fa fa-home"></i>
 					<strong>主页</strong>
 					<small>HOME</small>                   
@@ -669,7 +669,7 @@ body {
 			</li>
 			<li>
             <div style="padding-bottom:20px">
-				<a href="#" >
+				<a href="" target="_blank">
 					<i class="fa fa-gift"></i>
 					<strong>约会^0^</strong>
 					<small>APPOINTMENT</small>
@@ -678,7 +678,7 @@ body {
 			</li>
             <li>
             <div style="padding-bottom:20px">
-				<a href="#"  >
+				<a href="" target="_blank">
 					<i class="fa fa-edit"></i>
 					<strong>招聘>_<</strong>
 					<small>RECRUIT</small>
@@ -688,7 +688,7 @@ body {
 			
 			<li>
             <div style="padding-bottom:20px">
-				<a href="#" >
+				<a href="" target="_blank">
 					<i class="fa fa-comments-o"></i>
 					<strong>问答=_=</strong>
 					<small>QUESTION/ANSWER</small>
@@ -700,15 +700,15 @@ body {
 				<a>
 					<i class="fa fa-globe"></i>
 					<strong>您的信息</strong>
-					<small>${username}</small>
+					<small>${user.username}</small>
 				</a>
                 </div>
 				<ul>
-					<li><a href="http://localhost:8080/PRAC/base.jsp" ><i class="fa fa-globe"></i>基本信息</a></li>
+					<li><a href="" target="_blank"><i class="fa fa-globe"></i>基本信息</a></li>
 					<li>
-						<a href="http://localhost:8080/PRAC/edu.jsp" ><i class="fa fa-group"></i>教育经历</a>
+						<a href="" target="_blank"><i class="fa fa-group"></i>教育经历</a>
 					</li>
-					<li><a href="http://localhost:8080/PRAC/work.jsp" ><i class="fa fa-trophy"></i>工作经历</a></li>
+					<li><a href="" target="_blank"><i class="fa fa-trophy"></i>工作经历</a></li>
 					<li><a onclick="myFunction()"><i class="fa fa-certificate"></i>注销该账户</a></li>
 <script>
 function myFunction(){

@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
+
 import modle.User;
 import utils.DataBaseUtil;
 
@@ -47,11 +47,11 @@ public class UserDao {
     /**
      * 在用户提交注册信息时，如果注册成功xsxs需要将用户注册的信息存入数据库
      */
-    public String saveUser(User user) {
+    public void saveUser(User user) {
         //获取数据库连接
         Connection conn = DataBaseUtil.getConn();
         //插入信息的sql语句
-        String sql = "insert into USERS(username,password,email,phonenumber,sex) values(?,?,?,?,?);insert into baseinfo(username) values(?);insert into eduinfo(username) values(?);insert into workinfo(username) values(?)";
+        String sql = "insert into USERS(username,password,email,phonenumber,sex) values(?,?,?,?,?)";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, user.getUsername());
@@ -59,9 +59,6 @@ public class UserDao {
             ps.setString(3, user.getEmail());
             ps.setString(4, user.getPhonenumber());
             ps.setString(5, user.getSex());
-            ps.setString(6, user.getUsername());
-            ps.setString(7, user.getUsername());
-            ps.setString(8, user.getUsername());
             //执行更新操作
             ps.executeUpdate();
             //释放资源
@@ -69,8 +66,6 @@ public class UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        String username = user.getUsername();
-        return username;
     }
 
     /**
@@ -93,7 +88,7 @@ public class UserDao {
             while (rs.next()) {
 
                 user = new User();
-                //对用户对象进行赋值
+                //对用户对象进行复制
                 user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
                 user.setEmail(rs.getString("email"));
@@ -132,7 +127,7 @@ public class UserDao {
             while (rs.next()) {
 
                 user = new User();
-                //对用户对象进行赋值
+                //对用户对象进行复制
                 user.setUsername(rs.getString("username"));
                 user.setPassword(rs.getString("password"));
 
@@ -152,97 +147,7 @@ public class UserDao {
 
         return user;
     }
-    
-    public User base(String username) {
-		Statement stmt = null;
-		ResultSet rs = null;
-		try {
-	        Connection conn = DataBaseUtil.getConn();
-			stmt = conn.createStatement();
-			String sql = "select*from baseinfo where username='"+username+"'";
-			rs = stmt.executeQuery(sql);
-			while(rs.next()) {
-				User user = new User();
-				user.setRealname(rs.getString("realname"));
-				user.setBirthday(rs.getString("birthday"));
-				user.setCity(rs.getString("city"));
-				user.setHobby(rs.getString("hobby"));
-				user.setResume(rs.getString("resume"));
-				System.out.println(user.toString());
-				return user;
-			}
+}
 
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
 
-		}
-		return null;
-	}
-    
-    
-    public User edu(String username) {
-		Statement stmt = null;
-		ResultSet rs = null;
-		try {
-	        Connection conn = DataBaseUtil.getConn();
-			stmt = conn.createStatement();
-			String sql = "select*from eduinfo where username='"+username+"'";
-			rs = stmt.executeQuery(sql);
-			while(rs.next()) {
-				User user = new User();
-				user.setCollege(rs.getString("college"));
-				user.setMajor(rs.getString("major"));
-				user.setTime(rs.getString("time"));
-				user.setTimeend(rs.getString("timeend"));
-				user.setHistory(rs.getString("history"));
-				user.setSkill(rs.getString("skill"));
-				user.setHonor(rs.getString("honor"));
-				System.out.println(user.toString());
-				return user;
-			}
 
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-
-		}
-		return null;
-	}
-    
-    
-    public User work(String username) {
-		Statement stmt = null;
-		ResultSet rs = null;
-		try {
-	        Connection conn = DataBaseUtil.getConn();
-			stmt = conn.createStatement();
-			String sql = "select*from workinfo where username='"+username+"'";
-			rs = stmt.executeQuery(sql);
-			while(rs.next()) {
-				User user = new User();
-				user.setCompany(rs.getString("company"));
-				user.setJob(rs.getString("job"));
-				user.setWorktime(rs.getString("worktime"));
-				user.setWorkend(rs.getString("workend"));
-				user.setWorkcity(rs.getString("workcity"));
-				user.setSalary(rs.getString("salary"));
-				user.setDescribe(rs.getString("describe"));
-				System.out.println(user.toString());
-				return user;
-			}
-
-		}catch(Exception e) {
-			e.printStackTrace();
-		}finally {
-
-		}
-		return null;
-	}
-    	
-    }
-  
- 
-    
-    
-   

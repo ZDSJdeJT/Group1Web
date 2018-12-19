@@ -30,8 +30,7 @@ public class loginservlet extends HttpServlet {
         //判断user是否为空
         if (user != null) {
             //将用户的对象放到session中
-            req.getSession().setAttribute("username", username);
-            req.getSession().setAttribute("password", password);
+            req.getSession().setAttribute("user", user);
             //转发到result.jsp页面
             req.getRequestDispatcher("A home.jsp").forward(req, resp);
             /**
@@ -42,7 +41,6 @@ public class loginservlet extends HttpServlet {
              能够直接获得上一个请求的数据，也就是说采用请求转发，request对象始终存在，不会重新创建。而
              sendRedirect()会新建request对象，所以上一个request中的数据会丢失。
              */
-            
         }else {
             //登录失败
             req.getRequestDispatcher("loginunsuccessful.jsp").forward(req, resp);
