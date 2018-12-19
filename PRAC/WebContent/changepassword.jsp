@@ -18,7 +18,7 @@
 
 </head>
 
-<body background="http://localhost:8080/PRAC/约会吧/img/join.jpg">
+<body background="http://localhost:8080/PRAC/约会吧/img/cp.png">
 <div style="padding-top:80px">
   <span href="#" class="button" id="toggle-login">重置密码</span>
 
