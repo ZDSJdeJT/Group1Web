@@ -26,6 +26,13 @@ public class User {
 	private String workcity;
 	private String salary;
 	private String describe;
+	private String theme;
+	private String pay;
+	private String trysttime;
+	private String place;
+	private String trystdescribe;
+	
+	
 
 	public String getUsername() {
 		return username;
@@ -184,4 +191,39 @@ public class User {
 		this.describe = describe;
 	}
 	
+	
+	
+	
+	public String getTheme() {
+		return theme;
+	}
+	public void setTheme(String theme) {
+		this.theme = theme;
+	}
+	public String getPay() {
+		return pay;
+	}
+	public void setPay(String pay) {
+		this.pay = pay;
+	}
+	public String getTrysttime() {
+		return trysttime;
+	}
+	public void setTrysttime(String trysttime) {
+		this.trysttime = trysttime;
+	}
+	public String getPlace() {
+		return place;
+	}
+	public void setPlace(String place) {
+		this.place = place;
+	}
+	public String getTrystdescribe() {
+		return trystdescribe;
+	}
+	public void setTrystdescribe(String trystdescribe) {
+		this.trystdescribe = trystdescribe;
+	}
+	
+
 }

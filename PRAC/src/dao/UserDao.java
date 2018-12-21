@@ -5,6 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+
+
 import modle.User;
 import utils.DataBaseUtil;
 
@@ -51,7 +54,7 @@ public class UserDao {
         //获取数据库连接
         Connection conn = DataBaseUtil.getConn();
         //插入信息的sql语句
-        String sql = "insert into USERS(username,password,email,phonenumber,sex) values(?,?,?,?,?);insert into baseinfo(username) values(?);insert into eduinfo(username) values(?);insert into workinfo(username) values(?)";
+        String sql = "insert into USERS(username,password,email,phonenumber,sex) values(?,?,?,?,?);insert into baseinfo(username) values(?);insert into eduinfo(username) values(?);insert into workinfo(username) values(?);insert into tryst(username) values(?)";
         try {
             PreparedStatement ps = conn.prepareStatement(sql);
             ps.setString(1, user.getUsername());
@@ -62,6 +65,7 @@ public class UserDao {
             ps.setString(6, user.getUsername());
             ps.setString(7, user.getUsername());
             ps.setString(8, user.getUsername());
+            ps.setString(9, user.getUsername());
             //执行更新操作
             ps.executeUpdate();
             //释放资源
@@ -239,8 +243,37 @@ public class UserDao {
 		}
 		return null;
 	}
-    	
-    }
+
+    
+    public ArrayList<User> findAll(){
+		Connection conn = null;
+		Statement stmt = null;
+		ResultSet rs = null;
+		ArrayList<User> list = new ArrayList<User>();
+		try {
+			conn = DataBaseUtil.getConn();
+			stmt = conn.createStatement();
+			String sql = "SELECT*FROM tryst";
+			rs = stmt.executeQuery(sql);
+			while(rs.next()) {
+				User user = new User();
+				user.setUsername(rs.getString("username"));
+				user.setTheme(rs.getString("theme"));
+				user.setPay(rs.getString("pay"));
+				user.setTrysttime(rs.getString("trysttime"));
+				user.setPlace(rs.getString("place"));
+				user.setTrystdescribe(rs.getString("trystdescribe"));
+				list.add(user);
+			}
+			return list;
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+
+		}
+		return null;
+	}
+}
   
  
     

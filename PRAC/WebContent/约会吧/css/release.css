@@ -1,0 +1,26 @@
+a{
+  text-decoration: none;
+}
+.f{
+  margin-top: 200px;
+  margin-left: 960px;
+  padding: 0 auto;
+  width: 630px;
+  height: 400px;
+  background:none;
+  background-size: cover;
+  border: none;
+
+}
+.div1{
+  float: left;
+}
+body{
+  margin: auto;
+  background-repeat:no-repeat ;
+  background-size:100% 100%;
+  background-attachment: fixed;
+  overflow-y: auto; // 纵向如果内容超出则会显示滚动条
+overflow-x: hidden; // 横向隐藏
+}
+

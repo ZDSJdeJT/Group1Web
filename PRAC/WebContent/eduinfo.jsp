@@ -133,8 +133,8 @@ return false;
 <form name="form" action="http://localhost:8080/PRAC/eduinfoservlet" method="post"  onsubmit="return sumbit_sure()">
 院校名称：<input type="text" name="college" size="30" maxlength="16"  placeholder="所在院校" value="<%=user.getCollege()%>" style="font-size:20px"/><small style="color:#666">[您最多可以输入16个字符]</small>&nbsp;&nbsp;&nbsp;&nbsp;<br>
 专业名称：<input type="text" name="major" size="30" maxlength="16" placeholder="如：移动应用开发" value="<%=user.getMajor()%>" style="font-size:20px"/><small style="color:#666">[您最多可以输入16个字符]</small><br /><br />
-入学时间：<input type="date" name="time" size="30" maxlength="16"  value="<%=user.getTime()%>" /><br>
-毕业时间：<input type="date" name="timeend" size="30" maxlength="16"  value="<%=user.getTimeend()%>" />
+入学时间：<input type="date" name="time" style="font-size:20px" size="30" maxlength="16"  value="<%=user.getTime()%>" /><br>
+毕业时间：<input type="date" name="timeend" style="font-size:20px" size="30" maxlength="16"  value="<%=user.getTimeend()%>" />
 <br>最高学历：<input type="text" name="history" size="30" maxlength="16"  placeholder="您的学历，如：本科" value="<%=user.getHistory()%>" style="font-size:20px"/><small style="color:#666">[您最多可以输入16个字符]</small>
 <br /><br />
 相关技术：<small style="color:#666">[您最多可以输入75个字符]</small><br />

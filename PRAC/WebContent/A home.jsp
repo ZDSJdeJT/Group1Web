@@ -669,7 +669,7 @@ body {
 			</li>
 			<li>
             <div style="padding-bottom:20px">
-				<a href="#" >
+				<a href="http://localhost:8080/PRAC/pushtryst.jsp" >
 					<i class="fa fa-gift"></i>
 					<strong>约会^0^</strong>
 					<small>APPOINTMENT</small>
@@ -678,7 +678,7 @@ body {
 			</li>
             <li>
             <div style="padding-bottom:20px">
-				<a href="#"  >
+				<a href="约会吧/work.html"  target="_blank">
 					<i class="fa fa-edit"></i>
 					<strong>招聘>_<</strong>
 					<small>RECRUIT</small>
@@ -688,7 +688,7 @@ body {
 			
 			<li>
             <div style="padding-bottom:20px">
-				<a href="#" >
+				<a href="约会吧/QA.html" target="_blank">
 					<i class="fa fa-comments-o"></i>
 					<strong>问答=_=</strong>
 					<small>QUESTION/ANSWER</small>
